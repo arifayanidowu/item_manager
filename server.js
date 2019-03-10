@@ -1,10 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const config = require("config");
 
-const db = require("./config/keys").MONGODB_URI;
-const port = require("./config/keys").PORT;
-const itemsRoutes = require("./routes/api/items");
+const db = config.get("MONGODB_URI");
 
 const app = express();
 
@@ -13,13 +12,16 @@ app.use(express.json());
 
 mongoose
   .connect(db, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useCreateIndex: true
   })
   .then(() => console.log(`[MongoDB]: Connection established`))
   .catch(err => console.log(err));
 
 // Routes
-app.use("/api/items", itemsRoutes);
+app.use("/api/items", require("./routes/api/items"));
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
@@ -29,6 +31,8 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
+
+const port = process.env.PORT || 5000;
 
 app.listen(port, () =>
   console.log(`[Server]: Connection successful on port ${port}`)
