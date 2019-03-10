@@ -7,11 +7,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  NavLink
 } from "reactstrap";
 
 class AppNavbar extends Component {
@@ -33,9 +29,6 @@ class AppNavbar extends Component {
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
-                {/* <NavItem>
-                  <NavLink href="/components/">Components</NavLink>
-                </NavItem> */}
                 <NavItem>
                   <NavLink
                     href="https://github.com/stizzle123/item_manager.git"
@@ -44,17 +37,6 @@ class AppNavbar extends Component {
                     <i className="fab fa-github fa-2x" />
                   </NavLink>
                 </NavItem>
-                {/* <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav>
-                    Options <i className="fas fa-chevron-down" />
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem>Option 1</DropdownItem>
-                    <DropdownItem>Option 2</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>Reset</DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown> */}
               </Nav>
             </Collapse>
           </Container>
