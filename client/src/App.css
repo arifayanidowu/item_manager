@@ -6,7 +6,7 @@
   box-sizing: inherit;
 }
 
-html {
+html,body {
   font-family: "Oswald", sans-serif !important;
   word-spacing: 1.1 !important;
   box-sizing: border-box;
