@@ -7,7 +7,8 @@
 }
 
 html {
-  font-family: "Oswald", sans-serif;
+  font-family: "Oswald", sans-serif !important;
+  word-spacing: 1.1 !important;
   box-sizing: border-box;
 }
 
@@ -39,4 +40,13 @@ html {
 .fade-exit-active {
   opacity: 0.01;
   transition: opacity 1000ms ease-out;
+}
+
+.round {
+  width: 6px;
+  height: 6px;
+  padding: 4px;
+  border-radius: 50%;
+  text-align: center;
+  background: #9a9da0;
 }

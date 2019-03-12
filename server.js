@@ -13,7 +13,8 @@ app.use(express.json());
 mongoose
   .connect(db, {
     useNewUrlParser: true,
-    useCreateIndex: true
+    // useCreateIndex: true
+    autoIndex: false
   })
   .then(() => console.log(`[MongoDB]: Connection established`))
   .catch(err => console.log(err));

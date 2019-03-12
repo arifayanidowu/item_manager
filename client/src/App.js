@@ -5,11 +5,17 @@ import { Container } from "reactstrap";
 import AppNavbar from "./components/AppNavbar";
 import ShoppingList from "./components/ShoppingList";
 import ItemModal from "./components/ItemModal";
+
+import { loadUser } from "./actions/authActions";
 import store from "./store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 class App extends Component {
+  componentDidMount = () => {
+    store.dispatch(loadUser());
+  };
+
   render() {
     return (
       <Provider store={store}>
